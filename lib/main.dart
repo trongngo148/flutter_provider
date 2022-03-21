@@ -6,7 +6,8 @@ import 'home/screens/home_screen.dart';
 
 void main() {
   runApp(GetMaterialApp(
-    initialRoute: Routes.home,
+    debugShowCheckedModeBanner: false,
+    initialRoute: Routes.signIn,
     getPages: Routes.getPages,
   ));
 }
