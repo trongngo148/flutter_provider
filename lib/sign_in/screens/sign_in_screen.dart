@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_provider/config/routes/routes.dart';
 import 'package:flutter_provider/constants/styles.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
@@ -53,16 +54,16 @@ class _SignInScreenState extends State<SignInScreen> {
               Container(
                 height: (size.height - 60) * 0.5,
                 child: Column(children: [
-                  const Text(
+                  Text(
                     "Hey there",
                     style: TextStyle(fontSize: 16),
                   ),
-                  const SizedBox(height: 10),
-                  const Text(
+                  SizedBox(height: 10),
+                  Text(
                     "Welcome Back",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 30,
                   ),
                   Container(
@@ -85,8 +86,139 @@ class _SignInScreenState extends State<SignInScreen> {
                         ],
                       ),
                     ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 50,
+                    width: double.infinity,
+                    decoration: BoxDecoration(color: Styles.colors.bgTextField, borderRadius: BorderRadius.circular(12)),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Row(
+                        children: [
+                          Icon(LineIcons.lock, color: Colors.black.withOpacity(0.5)),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          Flexible(
+                              child: TextField(
+                            cursorColor: Colors.black.withOpacity(0.5),
+                            decoration: InputDecoration(hintText: "Password", border: InputBorder.none),
+                          )),
+                          IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                LineIcons.eyeAlt,
+                                color: Colors.black.withOpacity(0.5),
+                              ))
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    "Forgot your password?",
+                    style: TextStyle(fontSize: 13, decoration: TextDecoration.underline),
                   )
                 ]),
+              ),
+
+              //Login button and social login
+              Container(
+                height: (size.height - 60) * 0.5,
+                child: Column(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed(Routes.root);
+                      },
+                      child: Container(
+                        height: 50,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(colors: [Styles.colors.secondary, Styles.colors.primary]),
+                            borderRadius: BorderRadius.circular(30)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Icon(
+                              Icons.arrow_forward_sharp,
+                              color: Colors.white,
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              "Login",
+                              style: TextStyle(fontSize: 16, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: const [
+                        Flexible(
+                          child: Divider(
+                            thickness: 0.8,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text("Or"),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Flexible(
+                          child: Divider(
+                            thickness: 0.8,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 60,
+                          height: 60,
+                          decoration:
+                              BoxDecoration(borderRadius: BorderRadius.circular(12), border: Border.all(color: Colors.black.withOpacity(0.1))),
+                          child: Center(
+                              child: SvgPicture.asset(
+                            "assets/images/svgs/icons8-logo-google.svg",
+                            width: 60,
+                          )),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Container(
+                          width: 60,
+                          height: 60,
+                          decoration:
+                              BoxDecoration(borderRadius: BorderRadius.circular(12), border: Border.all(color: Colors.black.withOpacity(0.1))),
+                          child: Center(
+                              child: SvgPicture.asset(
+                            "assets/images/svgs/icons8-facebook.svg",
+                            width: 60,
+                          )),
+                        )
+                      ],
+                    )
+                  ],
+                ),
               )
             ],
           ),
