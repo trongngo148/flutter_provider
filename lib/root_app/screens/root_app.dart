@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_provider/home/screens/home_screen.dart';
+import 'package:flutter_provider/profile/screens/profile.dart';
 import 'package:line_icons/line_icons.dart';
 
 import '../../constants/styles.dart';
@@ -39,7 +41,7 @@ class _RootAppState extends State<RootApp> {
           child: Text("Camera"),
         ),
         Center(
-          child: Text("User"),
+          child: ProfileScreen(),
         ),
       ],
     );

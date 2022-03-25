@@ -5,6 +5,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:provider/provider.dart';
+
+import '../../wrap_auth/providers/google-sign-in.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -190,16 +193,22 @@ class _SignInScreenState extends State<SignInScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          width: 60,
-                          height: 60,
-                          decoration:
-                              BoxDecoration(borderRadius: BorderRadius.circular(12), border: Border.all(color: Colors.black.withOpacity(0.1))),
-                          child: Center(
-                              child: SvgPicture.asset(
-                            "assets/images/svgs/icons8-logo-google.svg",
+                        InkWell(
+                          onTap: () {
+                            final signInGoogleProvider = Provider.of<GoogleSignInProvider>(context, listen: false);
+                            signInGoogleProvider.googleLoginIn();
+                          },
+                          child: Container(
                             width: 60,
-                          )),
+                            height: 60,
+                            decoration:
+                                BoxDecoration(borderRadius: BorderRadius.circular(12), border: Border.all(color: Colors.black.withOpacity(0.1))),
+                            child: Center(
+                                child: SvgPicture.asset(
+                              "assets/images/svgs/icons8-logo-google.svg",
+                              width: 60,
+                            )),
+                          ),
                         ),
                         SizedBox(
                           width: 10,
