@@ -18,7 +18,7 @@ class _RootAppState extends State<RootApp> {
   @override
   void initState() {
     super.initState();
-    pageIndex = 0;
+    pageIndex = 3;
   }
 
   @override
@@ -53,7 +53,7 @@ class _RootAppState extends State<RootApp> {
       height: 80,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).scaffoldBackgroundColor,
         border: Border(top: BorderSide(width: 1, color: Colors.black.withOpacity(0.06))),
       ),
       child: Padding(
@@ -72,7 +72,7 @@ class _RootAppState extends State<RootApp> {
                   Icon(
                     items[index],
                     size: 28,
-                    color: pageIndex == index ? Styles.colors.thirdColor : Colors.black,
+                    color: pageIndex == index ? Styles.colors.thirdColor : Theme.of(context).iconTheme.color,
                   ),
                   SizedBox(
                     height: 5,

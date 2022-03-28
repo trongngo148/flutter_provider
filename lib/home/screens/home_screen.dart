@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_provider/config/routes/routes.dart';
 import 'package:get/get.dart';
@@ -22,6 +23,7 @@ class _HomeState extends State<Home> {
 
   Widget getBody() {
     var size = MediaQuery.of(context).size;
+    final user = FirebaseAuth.instance.currentUser!;
     return SingleChildScrollView(
       child: SafeArea(
         child: Padding(
@@ -34,7 +36,7 @@ class _HomeState extends State<Home> {
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         "Welcome Back",
                         style: TextStyle(fontSize: 14, color: Colors.black),
@@ -43,7 +45,7 @@ class _HomeState extends State<Home> {
                         height: 5,
                       ),
                       Text(
-                        "Jonathan",
+                        user.displayName!,
                         style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
                       )
                     ],
@@ -63,7 +65,8 @@ class _HomeState extends State<Home> {
                 width: double.infinity,
                 height: 145,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30), gradient: LinearGradient(colors: [Styles.colors.secondary, Styles.colors.primary])),
+                    borderRadius: BorderRadius.circular(30),
+                    gradient: LinearGradient(colors: [Styles.colors.secondaryLight, Styles.colors.primaryLight])),
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Row(

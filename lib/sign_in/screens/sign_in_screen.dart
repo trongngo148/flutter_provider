@@ -72,7 +72,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   Container(
                     height: 50,
                     width: double.infinity,
-                    decoration: BoxDecoration(color: Styles.colors.bgTextField, borderRadius: BorderRadius.circular(12)),
+                    decoration: BoxDecoration(color: Styles.colors.bgTextFieldLight, borderRadius: BorderRadius.circular(12)),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 10, right: 10),
                       child: Row(
@@ -96,7 +96,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   Container(
                     height: 50,
                     width: double.infinity,
-                    decoration: BoxDecoration(color: Styles.colors.bgTextField, borderRadius: BorderRadius.circular(12)),
+                    decoration: BoxDecoration(color: Styles.colors.bgTextFieldLight, borderRadius: BorderRadius.circular(12)),
                     child: Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: Row(
@@ -143,7 +143,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         height: 50,
                         width: double.infinity,
                         decoration: BoxDecoration(
-                            gradient: LinearGradient(colors: [Styles.colors.secondary, Styles.colors.primary]),
+                            gradient: LinearGradient(colors: [Styles.colors.secondaryLight, Styles.colors.primaryLight]),
                             borderRadius: BorderRadius.circular(30)),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,

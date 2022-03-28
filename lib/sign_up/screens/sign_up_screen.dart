@@ -14,7 +14,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(" ${Get?.arguments}"),
+          title: Text(" ${Get.arguments}"),
         ),
         body: Center(
           child: Column(

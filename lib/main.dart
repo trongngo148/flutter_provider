@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_provider/config/routes/routes.dart';
+import 'package:flutter_provider/config/theme.dart';
 import 'package:flutter_provider/profile/providers/profile_provider.dart';
 import 'package:flutter_provider/wrap_auth/providers/google-sign-in.dart';
 import 'package:get/get.dart';
@@ -20,10 +21,17 @@ Future main() async {
         create: (context) => ProfileProvider(),
       )
     ],
-    child: GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: Routes.auth,
-      getPages: Routes.getPages,
+    child: Consumer<ProfileProvider>(
+      builder: (context, provider, child) {
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: themeLightData(context),
+          darkTheme: themeDarkData(context),
+          themeMode: provider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+          initialRoute: Routes.auth,
+          getPages: Routes.getPages,
+        );
+      },
     ),
   ));
 }
